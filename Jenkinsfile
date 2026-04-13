@@ -12,7 +12,7 @@ pipeline {
 
         stage('Clone Code') {
             steps {
-                git 'https://github.com/Mateen-Aws2025/Mern_App_Demo.git'
+              git branch: 'main', url: 'https://github.com/Mateen-Aws2025/Mern_App_Demo.git'
             }
         }
 
