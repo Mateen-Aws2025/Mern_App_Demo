@@ -47,6 +47,8 @@ function UserForm() {
           <option>Hyderabad</option>
           <option>Mumbai</option>
           <option>Bangalore</option>
+          <option>Pune</option>
+
         </select>
 
         <select name="profession" onChange={handleChange}>
