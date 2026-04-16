@@ -8,6 +8,6 @@ WORKDIR /app/backend
 
 RUN npm install
 
-EXPOSE 5001
+EXPOSE 5000
 
 CMD ["node", "server.js"]
