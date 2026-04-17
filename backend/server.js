@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 
 // ✅ API
-app.post('/register', async (req, res) => {
+app.post('/api/register', async (req, res) => {
   try {
     const user = new User(req.body);
     await user.save();
@@ -38,7 +38,7 @@ app.post('/register', async (req, res) => {
 });
 
 // ✅ Get Users
-app.get('/users', async (req, res) => {
+app.get('/api/users', async (req, res) => {
   const users = await User.find();
   res.json(users);
 });
