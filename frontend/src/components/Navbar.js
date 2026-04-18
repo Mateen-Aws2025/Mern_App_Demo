@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import '../styles/Navbar.css';
 
 function Navbar() {
   const navigate = useNavigate();
@@ -10,28 +11,35 @@ function Navbar() {
   };
 
   return (
-    <div style={{
-      display: "flex",
-      justifyContent: "space-between",
-      padding: "10px 20px",
-      background: "#282c34",
-      color: "white"
-    }}>
-      <div>
-        <b>MyShop</b>
-      </div>
+    <nav className="navbar">
+      <div className="navbar-container">
+        <div className="navbar-logo">
+          <span className="logo-icon">👔</span>
+          <span className="logo-text">MyShop</span>
+        </div>
 
-      <div>
-        {user && <span style={{ marginRight: "15px" }}>
-          👤 {user.firstName}
-        </span>}
+        <div className="navbar-content">
+          {user && <span className="user-greeting">
+            👤 {user.firstName}
+          </span>}
 
-        <button onClick={() => navigate('/products')}>Products</button>
-        <button onClick={() => navigate('/cart')}>Cart</button>
-        <button onClick={() => navigate('/orders')}>Orders</button>
-        <button onClick={logout}>Logout</button>
+          <div className="navbar-buttons">
+            <button className="nav-btn" onClick={() => navigate('/products')}>
+              🛍️ Products
+            </button>
+            <button className="nav-btn" onClick={() => navigate('/cart')}>
+              🛒 Cart
+            </button>
+            <button className="nav-btn" onClick={() => navigate('/orders')}>
+              📦 Orders
+            </button>
+            <button className="nav-btn logout-btn" onClick={logout}>
+              🚪 Logout
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    </nav>
   );
 }
 

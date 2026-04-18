@@ -10,7 +10,7 @@ function Orders() {
     if (user) {
       getOrders(user._id).then(res => setOrders(res.data));
     }
-  }, []);
+  }, [user]);
 
   return (
     <div>
