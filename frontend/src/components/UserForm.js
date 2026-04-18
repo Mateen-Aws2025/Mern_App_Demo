@@ -56,6 +56,7 @@ function UserForm() {
           <option>Developer</option>
           <option>DevOps Engineer</option>
           <option>Tester</option>
+          <option>AwsCloudEngineer</option>
         </select>
       </div>
 
