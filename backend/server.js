@@ -100,7 +100,7 @@ app.post('/api/cart', async (req, res) => {
 
 // Get cart
 app.get('/api/cart/:userId', async (req, res) => {
-  const cart = await Cart.findOne({ userId });
+  const cart = await Cart.findOne({ userId: req.params.userId });
   res.json(cart || { items: [] });
 });
 
@@ -119,7 +119,7 @@ app.post('/api/checkout', async (req, res) => {
 
 // Get orders
 app.get('/api/orders/:userId', async (req, res) => {
-  const orders = await Order.find({ userId });
+  const orders = await Order.find({ userId: req.params.userId });
   res.json(orders);
 });
 
