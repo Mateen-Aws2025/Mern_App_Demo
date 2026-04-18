@@ -1,16 +1,15 @@
 import { useState } from 'react';
-import { registerUser } from '../services/api';
+import { register } from '../services/api';
+import { useNavigate } from 'react-router-dom';
 import './UserForm.css';
 
 function UserForm() {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     firstName: '',
-    lastName: '',
     email: '',
-    mobile: '',
-    gender: '',
-    city: '',
-    profession: ''
+    password: ''
   });
 
   const handleChange = (e) => {
@@ -19,8 +18,13 @@ function UserForm() {
 
   const submitHandler = async () => {
     try {
-      await registerUser(form);
+      await register(form);
+
       alert("User Registered Successfully ✅");
+
+      // 👇 REDIRECT TO LOGIN
+      navigate('/');
+
     } catch (err) {
       alert("Error ❌");
     }
@@ -28,39 +32,26 @@ function UserForm() {
 
   return (
     <div className="form-container">
-      <h2>User Registration</h2>
+      <input
+        name="firstName"
+        placeholder="Name"
+        onChange={handleChange}
+      />
 
-      <div className="form-grid">
-        <input name="firstName" placeholder="First Name" onChange={handleChange} />
-        <input name="lastName" placeholder="Last Name" onChange={handleChange} />
-        <input name="email" placeholder="Email" onChange={handleChange} />
-        <input name="mobile" placeholder="Mobile Number" onChange={handleChange} />
+      <input
+        name="email"
+        placeholder="Email"
+        onChange={handleChange}
+      />
 
-        <select name="gender" onChange={handleChange}>
-          <option value="">Select Gender</option>
-          <option>Male</option>
-          <option>Female</option>
-        </select>
+      <input
+        name="password"
+        type="password"
+        placeholder="Password"
+        onChange={handleChange}
+      />
 
-        <select name="city" onChange={handleChange}>
-          <option value="">Select City</option>
-          <option>Hyderabad</option>
-          <option>Mumbai</option>
-          <option>Bangalore</option>
-          <option>Pune</option>
-
-        </select>
-
-        <select name="profession" onChange={handleChange}>
-          <option value="">Select Profession</option>
-          <option>Developer</option>
-          <option>DevOps Engineer</option>
-          <option>Tester</option>
-          <option>AwsCloudEngineer</option>
-        </select>
-      </div>
-
-      <button onClick={submitHandler}>Submit</button>
+      <button onClick={submitHandler}>Register</button>
     </div>
   );
 }
