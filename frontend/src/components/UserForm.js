@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { registerUser } from '../services/Api';
+import { registerUser } from '../services/api';
 import './UserForm.css';
 
 function UserForm() {
