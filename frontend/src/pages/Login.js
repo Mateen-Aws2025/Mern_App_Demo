@@ -78,7 +78,7 @@ function Login() {
 
         <div className="auth-footer">
           <p className="footer-text">
-            Don't have an account?
+            Don't have an account? Creat it!
             <span
               className="link-text"
               onClick={() => navigate('/register')}
